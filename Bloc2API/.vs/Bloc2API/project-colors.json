@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ee79a917-1698-45d9-b0ac-a373fa09a806": {
+      "ProjectGuid": "ee79a917-1698-45d9-b0ac-a373fa09a806",
+      "DisplayName": "Bloc2API",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    },
+    "919fd655-f067-4ba2-b932-d926e85dd6b4": {
+      "ProjectGuid": "919fd655-f067-4ba2-b932-d926e85dd6b4",
+      "DisplayName": "Documents de script",
+      "ColorIndex": 1
+    },
+    "69d86a24-f278-4df8-a4c8-c15fb9e9b968": {
+      "ProjectGuid": "69d86a24-f278-4df8-a4c8-c15fb9e9b968",
+      "DisplayName": "TestApp",
+      "ColorIndex": 2
+    },
+    "d5fdc903-35a3-4f50-af38-1b8923e9ec09": {
+      "ProjectGuid": "d5fdc903-35a3-4f50-af38-1b8923e9ec09",
+      "DisplayName": "TestingProject",
+      "ColorIndex": 3
+    },
+    "fdbfdc66-1d90-460e-8dfa-e537fba001a0": {
+      "ProjectGuid": "fdbfdc66-1d90-460e-8dfa-e537fba001a0",
+      "DisplayName": "TestProject1",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
