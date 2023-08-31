@@ -9,41 +9,37 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Configuration de la classe JwtConfiguration à partir des valeurs dans le fichier de configuration
+// Configuration de la classe JwtConfiguration Ã  partir des valeurs dans le fichier de configuration
 builder.Services.Configure<JwtConfiguration>(builder.Configuration.GetSection(key: "JwtConfig"));
 
-// Ajout des services pour les contrôleurs
 builder.Services.AddControllers();
-
-// Ajout des services pour la génération de la documentation API via Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 
-// Ajout des services pour la gestion d'identité par défaut (Identity) avec Entity Framework Stores
+// Ajout des services d'Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(configureOptions: options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<Bloc2DbContext>();
 
 // Ajout des services pour  Swagger
 builder.Services.AddSwaggerGen();
 
-// Ajout des services pour la gestion de la base de données avec Entity Framework Core (utilisation de SQL Server)
+// Ajout des services pour la gestion de la base de donnÃ©es 
 builder.Services.AddDbContext<Bloc2DbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RattrapageDbConnectionString")));
 
 // Configuration de l'authentification
 builder.Services.AddAuthentication(configureOptions: options =>
 {
-    // Configuration des schémas d'authentification par défaut
+    // Configuration des schÃ©mas d'authentification par dÃ©faut
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(jwt =>
 {
-    // Récupération de la clé secrète depuis la configuration
+    // RÃ©cupÃ©ration de la clÃ© secrÃ¨te depuis la configuration
     byte[] key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection(key: "JwtConfig:Secret").Value);
     jwt.SaveToken = true;
 
-    // Configuration des paramètres de validation du jeton JWT
+    // Configuration des paramÃ¨tres de validation du jeton JWT
     jwt.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuerSigningKey = true,
@@ -57,7 +53,6 @@ builder.Services.AddAuthentication(configureOptions: options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
